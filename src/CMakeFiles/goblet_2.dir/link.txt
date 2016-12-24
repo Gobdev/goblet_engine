@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/goblet_2.dir/main.cpp.o  -o goblet_2 -rdynamic glfw-3.2.1/src/libglfw3.a -lGL -lGLU -lGL -lGLEW -lrt -lm -ldl -lX11 -lpthread -lXrandr -lXinerama -lXxf86vm -lXcursor -lGLU -lGLEW 

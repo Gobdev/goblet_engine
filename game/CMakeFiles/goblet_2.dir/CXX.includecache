@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/johan/Git/Github/goblet_2_reawakening/game/src/common/shader.cpp
+stdio.h
+-
+string
+-
+vector
+-
+iostream
+-
+fstream
+-
+algorithm
+-
+stdlib.h
+-
+string.h
+-
+GL/glew.h
+-
+common/shader.h
+-
+
+/home/johan/Git/Github/goblet_2_reawakening/game/src/main.cpp
+stdio.h
+-
+stdlib.h
+-
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+glm/glm.hpp
+-
+common/shader.h
+-
+
+src/common/shader.h
+

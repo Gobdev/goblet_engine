@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/playground.dir/playground.cpp.o  -o playground -rdynamic glfw-3.2.1/src/libglfw3.a -lGL -lGLU -lGL glfw-3.2.1/src/libglfw3.a -lGLEW_1130 -lrt -lm -ldl -lX11 -lpthread -lXrandr -lXinerama -lXxf86vm -lXcursor -lGLU -lGLEW_1130 

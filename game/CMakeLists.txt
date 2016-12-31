@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 
 SET(CMAKE_SYSTEM_NAME Linux)
+SET(CMAKE_CXX_STANDARD 11)
 
 project (Goblet_2)
 

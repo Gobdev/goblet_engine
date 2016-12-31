@@ -47,6 +47,8 @@ stdlib.h
 -
 iostream
 -
+math.h
+-
 GL/glew.h
 -
 GLFW/glfw3.h

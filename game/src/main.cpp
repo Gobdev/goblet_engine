@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <math.h>
 
 // Include GLEW
 #include <GL/glew.h>
@@ -23,6 +24,14 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
+    if (key == GLFW_KEY_W && action == GLFW_PRESS)
+    	std::cout << "W" << std::endl;
+    if (key == GLFW_KEY_A && action == GLFW_PRESS)
+    	std::cout << "A" << std::endl;
+    if (key == GLFW_KEY_S && action == GLFW_PRESS)
+    	std::cout << "S" << std::endl;
+    if (key == GLFW_KEY_D && action == GLFW_PRESS)
+    	std::cout << "D" << std::endl;
 }
 
 int main( void )
@@ -78,7 +87,7 @@ int main( void )
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
 
 	// Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-	glm::mat4 Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 10.0f);
+	glm::mat4 Projection = glm::perspective(90.0f * (float) M_PI / 180.0f, 4.0f / 3.0f, 0.1f, 10.0f);
 	// Camera matrix
 	glm::mat4 View       = glm::lookAt(
 								glm::vec3(0,0,-4), // Camera is at (4,3,3), in World Space
@@ -130,10 +139,9 @@ int main( void )
 
 	do{
 
-		for (int i = 0; i < 6; i++){
-			g_vertex_buffer_data[3*i] -= 0.01f;
+		for(int i = 0; i < 6; i++){
+			g_vertex_buffer_data[i*3] -= 0.01f;
 		}
-
 		glGenBuffers(1, &vertexbuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);

@@ -20,18 +20,82 @@ using namespace glm;
 #include <common/shader.hpp>
 #include <common/texture.hpp>
 
+GLfloat g_vertex_buffer_data[] = { 
+		-1.0f,-1.0f, 0.0f, 
+		-1.0f, 1.0f, 0.0f, 
+		 1.0f, 1.0f, 0.0f, 
+		-1.0f,-1.0f, 0.0f, 
+		 1.0f,-1.0f, 0.0f, 
+		 1.0f, 1.0f, 0.0f, 
+	};
+
+double lastTime;
+float x_dir = 0.0f;
+float y_dir = 0.0f;
+float move_speed = 100000.0f;
+
+void change_x(float deltaTime){
+	for (int i = 0; i < 6; i++){
+		g_vertex_buffer_data[i * 3] -= x_dir * deltaTime * move_speed;
+	}
+}
+
+void change_y(float deltaTime){
+	for (int i = 0; i < 6; i++){
+		g_vertex_buffer_data[i * 3 + 1] -= y_dir * deltaTime * move_speed;
+	}
+}
+
+void move_king(float deltaTime){
+	change_x(deltaTime);
+	change_y(deltaTime);
+}
+
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, GL_TRUE);
-    if (key == GLFW_KEY_W && action == GLFW_PRESS)
-    	std::cout << "W" << std::endl;
+	switch(action){
+		case GLFW_PRESS:
+			switch(key){
+				case GLFW_KEY_W:
+					y_dir = -1.0f;
+					break;
+				case GLFW_KEY_A:
+					x_dir = -1.0f;
+					break;
+				case GLFW_KEY_S:
+					y_dir = 1.0f;
+					break;
+				case GLFW_KEY_D:
+					x_dir = 1.0f;
+					break;
+				case GLFW_KEY_ESCAPE:
+        			glfwSetWindowShouldClose(window, GL_TRUE);
+					break;
+			}
+			break;
+		case GLFW_RELEASE:
+			switch(key){
+				case GLFW_KEY_W:
+				case GLFW_KEY_S:
+					y_dir = 0.0f;
+					break;
+				case GLFW_KEY_A:
+				case GLFW_KEY_D:
+					x_dir = 0.0f;
+					break;
+				}
+			break;
+	}
+	//if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+    //    glfwSetWindowShouldClose(window, GL_TRUE);
+    /*if (key == GLFW_KEY_W && action == GLFW_PRESS)
+    	change_y(-deltaTime);
     if (key == GLFW_KEY_A && action == GLFW_PRESS)
-    	std::cout << "A" << std::endl;
+    	change_x(-deltaTime);
     if (key == GLFW_KEY_S && action == GLFW_PRESS)
-    	std::cout << "S" << std::endl;
+    	change_y(deltaTime);
     if (key == GLFW_KEY_D && action == GLFW_PRESS)
-    	std::cout << "D" << std::endl;
+    	change_x(deltaTime);*/
 }
 
 int main( void )
@@ -50,7 +114,7 @@ int main( void )
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// Open a window and create its OpenGL context
-	window = glfwCreateWindow( 1920, 1080, "Goblet 2: Reawakening", NULL, NULL);
+	window = glfwCreateWindow( 1920, 1080, "Goblet 2: Reawakening", glfwGetPrimaryMonitor(), NULL);
 	if( window == NULL ){
 		fprintf( stderr, "Failed to open GLFW window.\n" );
 		glfwTerminate();
@@ -108,14 +172,6 @@ int main( void )
 
 	// Our vertices. Three consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
 	// A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
-	GLfloat g_vertex_buffer_data[] = { 
-		-1.0f,-1.0f, 0.0f, 
-		-1.0f, 1.0f, 0.0f, 
-		 1.0f, 1.0f, 0.0f, 
-		-1.0f,-1.0f, 0.0f, 
-		 1.0f,-1.0f, 0.0f, 
-		 1.0f, 1.0f, 0.0f, 
-	};
 
 	// Two UV coordinatesfor each vertex. They were created with Blender.
 	static const GLfloat g_uv_buffer_data[] = { 
@@ -137,11 +193,20 @@ int main( void )
 	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_uv_buffer_data), g_uv_buffer_data, GL_STATIC_DRAW);
 
+	double lastFrame = glfwGetTime();
+	int frames = 0;
 	do{
-
-		for(int i = 0; i < 6; i++){
-			g_vertex_buffer_data[i*3] -= 0.01f;
+		frames++;
+		lastTime = glfwGetTime();
+		double currentTime = glfwGetTime();
+		float deltaTime = float(currentTime - lastTime);
+		if (currentTime > lastFrame + 1.0f){
+			std::cout << "FPS: " << frames << std::endl;
+			lastFrame = currentTime;
+			frames = 0;
 		}
+		move_king(deltaTime);
+		lastTime = currentTime;
 		glGenBuffers(1, &vertexbuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);

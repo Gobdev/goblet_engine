@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/johan/Git/Github/goblet_2_reawakening/game
 CMakeFiles/goblet_2.dir/all:
 	$(MAKE) -f CMakeFiles/goblet_2.dir/build.make CMakeFiles/goblet_2.dir/depend
 	$(MAKE) -f CMakeFiles/goblet_2.dir/build.make CMakeFiles/goblet_2.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/johan/Git/Github/goblet_2_reawakening/game/CMakeFiles  1 2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/johan/Git/Github/goblet_2_reawakening/game/CMakeFiles  1 2 3
 	@echo "Built target goblet_2"
 .PHONY : CMakeFiles/goblet_2.dir/all
 
@@ -69,7 +69,7 @@ all: CMakeFiles/goblet_2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/goblet_2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/johan/Git/Github/goblet_2_reawakening/game/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/johan/Git/Github/goblet_2_reawakening/game/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/goblet_2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/johan/Git/Github/goblet_2_reawakening/game/CMakeFiles 0
 .PHONY : CMakeFiles/goblet_2.dir/rule

@@ -138,6 +138,30 @@ src/common/shader.cpp.s:
 	$(MAKE) -f CMakeFiles/goblet_2.dir/build.make CMakeFiles/goblet_2.dir/src/common/shader.cpp.s
 .PHONY : src/common/shader.cpp.s
 
+src/common/texture.o: src/common/texture.cpp.o
+.PHONY : src/common/texture.o
+
+# target to build an object file
+src/common/texture.cpp.o:
+	$(MAKE) -f CMakeFiles/goblet_2.dir/build.make CMakeFiles/goblet_2.dir/src/common/texture.cpp.o
+.PHONY : src/common/texture.cpp.o
+
+src/common/texture.i: src/common/texture.cpp.i
+.PHONY : src/common/texture.i
+
+# target to preprocess a source file
+src/common/texture.cpp.i:
+	$(MAKE) -f CMakeFiles/goblet_2.dir/build.make CMakeFiles/goblet_2.dir/src/common/texture.cpp.i
+.PHONY : src/common/texture.cpp.i
+
+src/common/texture.s: src/common/texture.cpp.s
+.PHONY : src/common/texture.s
+
+# target to generate assembly for a file
+src/common/texture.cpp.s:
+	$(MAKE) -f CMakeFiles/goblet_2.dir/build.make CMakeFiles/goblet_2.dir/src/common/texture.cpp.s
+.PHONY : src/common/texture.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -174,6 +198,9 @@ help:
 	@echo "... src/common/shader.o"
 	@echo "... src/common/shader.i"
 	@echo "... src/common/shader.s"
+	@echo "... src/common/texture.o"
+	@echo "... src/common/texture.i"
+	@echo "... src/common/texture.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

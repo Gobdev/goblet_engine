@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/goblet_2.dir/src/main.cpp.o"
   "CMakeFiles/goblet_2.dir/src/common/shader.cpp.o"
+  "CMakeFiles/goblet_2.dir/src/common/texture.cpp.o"
   "goblet_2.pdb"
   "goblet_2"
 )

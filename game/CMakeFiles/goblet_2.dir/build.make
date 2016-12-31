@@ -95,16 +95,41 @@ CMakeFiles/goblet_2.dir/src/common/shader.cpp.o.provides: CMakeFiles/goblet_2.di
 
 CMakeFiles/goblet_2.dir/src/common/shader.cpp.o.provides.build: CMakeFiles/goblet_2.dir/src/common/shader.cpp.o
 
+CMakeFiles/goblet_2.dir/src/common/texture.cpp.o: CMakeFiles/goblet_2.dir/flags.make
+CMakeFiles/goblet_2.dir/src/common/texture.cpp.o: src/common/texture.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/johan/Git/Github/goblet_2_reawakening/game/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/goblet_2.dir/src/common/texture.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/goblet_2.dir/src/common/texture.cpp.o -c /home/johan/Git/Github/goblet_2_reawakening/game/src/common/texture.cpp
+
+CMakeFiles/goblet_2.dir/src/common/texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/goblet_2.dir/src/common/texture.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/johan/Git/Github/goblet_2_reawakening/game/src/common/texture.cpp > CMakeFiles/goblet_2.dir/src/common/texture.cpp.i
+
+CMakeFiles/goblet_2.dir/src/common/texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/goblet_2.dir/src/common/texture.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/johan/Git/Github/goblet_2_reawakening/game/src/common/texture.cpp -o CMakeFiles/goblet_2.dir/src/common/texture.cpp.s
+
+CMakeFiles/goblet_2.dir/src/common/texture.cpp.o.requires:
+.PHONY : CMakeFiles/goblet_2.dir/src/common/texture.cpp.o.requires
+
+CMakeFiles/goblet_2.dir/src/common/texture.cpp.o.provides: CMakeFiles/goblet_2.dir/src/common/texture.cpp.o.requires
+	$(MAKE) -f CMakeFiles/goblet_2.dir/build.make CMakeFiles/goblet_2.dir/src/common/texture.cpp.o.provides.build
+.PHONY : CMakeFiles/goblet_2.dir/src/common/texture.cpp.o.provides
+
+CMakeFiles/goblet_2.dir/src/common/texture.cpp.o.provides.build: CMakeFiles/goblet_2.dir/src/common/texture.cpp.o
+
 # Object files for target goblet_2
 goblet_2_OBJECTS = \
 "CMakeFiles/goblet_2.dir/src/main.cpp.o" \
-"CMakeFiles/goblet_2.dir/src/common/shader.cpp.o"
+"CMakeFiles/goblet_2.dir/src/common/shader.cpp.o" \
+"CMakeFiles/goblet_2.dir/src/common/texture.cpp.o"
 
 # External object files for target goblet_2
 goblet_2_EXTERNAL_OBJECTS =
 
 goblet_2: CMakeFiles/goblet_2.dir/src/main.cpp.o
 goblet_2: CMakeFiles/goblet_2.dir/src/common/shader.cpp.o
+goblet_2: CMakeFiles/goblet_2.dir/src/common/texture.cpp.o
 goblet_2: CMakeFiles/goblet_2.dir/build.make
 goblet_2: /usr/lib/x86_64-linux-gnu/libGL.so
 goblet_2: /usr/lib/x86_64-linux-gnu/libGLU.so
@@ -122,6 +147,7 @@ CMakeFiles/goblet_2.dir/build: goblet_2
 
 CMakeFiles/goblet_2.dir/requires: CMakeFiles/goblet_2.dir/src/main.cpp.o.requires
 CMakeFiles/goblet_2.dir/requires: CMakeFiles/goblet_2.dir/src/common/shader.cpp.o.requires
+CMakeFiles/goblet_2.dir/requires: CMakeFiles/goblet_2.dir/src/common/texture.cpp.o.requires
 .PHONY : CMakeFiles/goblet_2.dir/requires
 
 CMakeFiles/goblet_2.dir/clean:

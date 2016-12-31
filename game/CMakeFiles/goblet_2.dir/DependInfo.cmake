@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/johan/Git/Github/goblet_2_reawakening/game/src/common/shader.cpp" "/home/johan/Git/Github/goblet_2_reawakening/game/CMakeFiles/goblet_2.dir/src/common/shader.cpp.o"
+  "/home/johan/Git/Github/goblet_2_reawakening/game/src/common/texture.cpp" "/home/johan/Git/Github/goblet_2_reawakening/game/CMakeFiles/goblet_2.dir/src/common/texture.cpp.o"
   "/home/johan/Git/Github/goblet_2_reawakening/game/src/main.cpp" "/home/johan/Git/Github/goblet_2_reawakening/game/CMakeFiles/goblet_2.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

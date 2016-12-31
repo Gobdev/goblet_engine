@@ -3,7 +3,10 @@
 
 CMakeFiles/goblet_2.dir/src/common/shader.cpp.o
  /home/johan/Git/Github/goblet_2_reawakening/game/src/common/shader.cpp
- src/common/shader.h
+ src/common/shader.hpp
+CMakeFiles/goblet_2.dir/src/common/texture.cpp.o
+ /home/johan/Git/Github/goblet_2_reawakening/game/src/common/texture.cpp
 CMakeFiles/goblet_2.dir/src/main.cpp.o
  /home/johan/Git/Github/goblet_2_reawakening/game/src/main.cpp
- src/common/shader.h
+ src/common/shader.hpp
+ src/common/texture.hpp

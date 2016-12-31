@@ -25,7 +25,19 @@ string.h
 -
 GL/glew.h
 -
-common/shader.h
+common/shader.hpp
+-
+
+/home/johan/Git/Github/goblet_2_reawakening/game/src/common/texture.cpp
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+GL/glew.h
+-
+GLFW/glfw3.h
 -
 
 /home/johan/Git/Github/goblet_2_reawakening/game/src/main.cpp
@@ -39,8 +51,14 @@ GLFW/glfw3.h
 -
 glm/glm.hpp
 -
-common/shader.h
+glm/gtc/matrix_transform.hpp
+-
+common/shader.hpp
+-
+common/texture.hpp
 -
 
-src/common/shader.h
+src/common/shader.hpp
+
+src/common/texture.hpp
 

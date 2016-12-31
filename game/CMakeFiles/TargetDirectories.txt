@@ -1,1 +1,0 @@
-/home/johan/Git/Github/goblet_2_reawakening/game/CMakeFiles/goblet_2.dir

@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/goblet_2.dir/src/main.cpp.o CMakeFiles/goblet_2.dir/src/common/shader.cpp.o CMakeFiles/goblet_2.dir/src/common/texture.cpp.o  -o goblet_2 -rdynamic -lglfw -lGL -lGLU -lGL -lGLEW -lGLU -lGLEW 

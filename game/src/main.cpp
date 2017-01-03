@@ -30,19 +30,22 @@ GLfloat g_vertex_buffer_data[] = {
 	};
 
 double lastTime;
-float x_dir = 0.0f;
-float y_dir = 0.0f;
-float move_speed = 100000.0f;
+double x_dir = 0.0;
+double y_dir = 0.0;
+const double move_speed = 1.0;
 
-void change_x(float deltaTime){
+void change_x(double deltaTime){
 	for (int i = 0; i < 6; i++){
-		g_vertex_buffer_data[i * 3] -= x_dir * deltaTime * move_speed;
+		g_vertex_buffer_data[i * 3] -= (float) (x_dir * deltaTime * move_speed);
 	}
 }
 
-void change_y(float deltaTime){
+void change_y(double deltaTime){
 	for (int i = 0; i < 6; i++){
-		g_vertex_buffer_data[i * 3 + 1] -= y_dir * deltaTime * move_speed;
+		g_vertex_buffer_data[i * 3 + 1] -= (float) (y_dir * deltaTime * move_speed);
+	}
+	if (deltaTime * move_speed > 0.1f){
+		std::cout << deltaTime * move_speed << std::endl;
 	}
 }
 
@@ -86,16 +89,6 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 				}
 			break;
 	}
-	//if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-    //    glfwSetWindowShouldClose(window, GL_TRUE);
-    /*if (key == GLFW_KEY_W && action == GLFW_PRESS)
-    	change_y(-deltaTime);
-    if (key == GLFW_KEY_A && action == GLFW_PRESS)
-    	change_x(-deltaTime);
-    if (key == GLFW_KEY_S && action == GLFW_PRESS)
-    	change_y(deltaTime);
-    if (key == GLFW_KEY_D && action == GLFW_PRESS)
-    	change_x(deltaTime);*/
 }
 
 int main( void )
@@ -121,6 +114,7 @@ int main( void )
 		return -1;
 	}
 	glfwMakeContextCurrent(window);
+	glfwSwapInterval(1);
 
 	// Initialize GLEW
 	glewExperimental = true; // Needed for core profile
@@ -194,12 +188,14 @@ int main( void )
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_uv_buffer_data), g_uv_buffer_data, GL_STATIC_DRAW);
 
 	double lastFrame = glfwGetTime();
+	double deltaTime;
+	double currentTime = glfwGetTime();
 	int frames = 0;
 	do{
 		frames++;
-		lastTime = glfwGetTime();
-		double currentTime = glfwGetTime();
-		float deltaTime = float(currentTime - lastTime);
+		lastTime = currentTime;
+		currentTime = glfwGetTime();
+		deltaTime = currentTime - lastTime;
 		if (currentTime > lastFrame + 1.0f){
 			std::cout << "FPS: " << frames << std::endl;
 			lastFrame = currentTime;
